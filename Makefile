@@ -2,8 +2,8 @@ CC	=	gcc
 CFLAGS = -I/include/ -L./lib/my -lmy -g
 
 SRC_TEST = 	src/linked_list.c \
-	src/list_function.c \
-	src/bootstrap.c \
+	src/s_function.c \
+	src/my_sorter.c \
 
 			
 			
@@ -24,7 +24,7 @@ all:	$(NAME)
 
 $(NAME):
 	@make -sC lib/my
-	$(CC) $(SRC_TEST) -o push_swap $(CFLAGS) -lncurses
+	$(CC) $(SRC_TEST) -o push_swap $(CFLAGS)
 	
 
 

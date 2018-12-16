@@ -17,19 +17,18 @@
 #ifndef MY_LIST_H_
 #define MY_LIST_H_
 
-typedef struct Element Element;
-struct Element
+
+//typedef struct Element Element;
+typedef struct Element
 {
     int number;
-    Element *next;
-};
+    struct Element *next;
+}t_element;
 
-typedef struct Liste Liste;
-struct Liste
+typedef struct Liste
 {
-    Element *first;
-};
-typedef Element* llist;
+    t_element *first;
+}t_entities;
 
 void my_putchar(char c);
 int my_putstr(char const *str);

@@ -7,19 +7,19 @@
 
 #include "my.h"
 
-int my_getnbr(char *str)
+int my_getnbr(char *test)
 {
     int co = 0;
     int rst = 0;
-    int isneg = 1;
+    int neg = 1;
 
-    while (str[co]) {
-        if (str[co] == '-')
-            isneg = - isneg;
-        else if (str[co] >= 48 && str[co] <= 57) {
-            rst = ((rst * 10) + (str[co] - 48));
+    while (test[co]) {
+        if (test[co] == '-')
+            neg = - neg;
+        else if (test[co] >= 48 && test[co] <= 57) {
+            rst = ((rst * 10) + (test[co] - 48));
         }
         co++;
     }
-    return (rst * isneg);
+    return (rst * neg);
 }

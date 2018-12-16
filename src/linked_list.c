@@ -8,66 +8,57 @@
 #include <stdio.h>
 #include "../include/my.h"
 
-Liste *initialisation()
+t_entities *initialisation(void)
 {
-    Liste *liste = malloc(sizeof(*liste));
-    Element *element = malloc(sizeof(*element));
+    t_entities *l_a = malloc(sizeof(*l_a));
+    t_element *entities = malloc(sizeof(*entities));
 
-    if (liste == NULL || element == NULL)
-    {
-        exit(EXIT_FAILURE);
+    if (l_a == NULL || entities == NULL) {
+        return (84);
     }
+    entities->next = NULL;
 
-    element->number = 0;
-    element->next = NULL;
-    liste->first = element;
-
-    return liste;
+    return (l_a);
 }
 
-/*Liste ajouterEnFin(Element *liste, int valeur)
+void create_list(char *nbr, t_entities *liste)
 {
-    Element *nouvelElement = malloc(sizeof(Element));
-    nouvelElement->number = valeur;
-    nouvelElement->next = NULL;
- 
-    if(liste == NULL)
-    {
-        return (nouvelElement);
+    t_element *list = malloc(sizeof(list));
+
+    list->number = my_getnbr(nbr);
+    list->next = liste->first;
+    liste->first = list;
+}
+
+void sort_my_list(t_element **l_a, t_element **l_b, int ac)
+{
+    t_element *tmp = l_a;
+    int counter = ac - 2;
+    int i = 0;
+
+    tmp = *l_a;
+    while (tmp->next != NULL && tmp->number < tmp->next->number) {
+        i++;
+        tmp = tmp->next;
+    }
+    if (i != counter) {
+        my_list_sort(l_a, l_b);
+        my_putchar('\b');
+        my_putchar('\n');
     }
     else
-    {
-        Element* temp = liste;
-        while(temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        temp->next = nouvelElement;
-        return (liste);
-    }
-}*/
-
-void ajouterEnTete(Element liste, int valeur)
-{
-    /* On crée un nouvel élément */
-    Element* nouvelElement = malloc(sizeof(Element));
-    nouvelElement->number = valeur;
-    nouvelElement->next = liste;
+        my_putchar('\n');
 }
 
 int main(int ac, char **av)
 {
-    Liste *l_1 = initialisation();
-    Liste *l_2 = initialisation();
+    t_element **l_1 = initialisation();
+    t_element **l_2 = initialisation();
 
-    
-    //suppression(l_1);
-
-    for (int i = ac - 1; i != 0; i--) {
-        //suppression(l_1);
+    if (ac < 2)
+        return (84);
+    for (int i = ac - 1; i != 0; i--)
         create_list(av[i], l_1);
-    }
-    insertion(l_1, 10);
-    suppression(l_1);
-    afficherListe(l_1);
+    sort_my_list(l_1, l_2, ac);
+    return (0);
 }
