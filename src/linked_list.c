@@ -17,7 +17,6 @@ t_entities *initialisation(void)
         return (84);
     }
     entities->next = NULL;
-
     return (l_a);
 }
 

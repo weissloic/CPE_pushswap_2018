@@ -17,8 +17,6 @@
 #ifndef MY_LIST_H_
 #define MY_LIST_H_
 
-
-//typedef struct Element Element;
 typedef struct Element
 {
     int number;
@@ -34,8 +32,16 @@ void my_putchar(char c);
 int my_putstr(char const *str);
 char *my_strcpy(char *dest, char const *src);
 int my_strlen(char const *str);
-void swap_elem(int *array, int index1, int index2);
-void bubble_sort_array(int *array, int size);
+t_entities *initialisation(void);
+void create_list(char *nbr, t_entities *liste);
+void sort_my_list(t_element **l_a, t_element **l_b, int ac);
+void my_list_sort_two(t_element **l_a, t_element **l_b);
+void my_list_sort(t_element **l_a, t_element **l_b);
+void sa_func(t_element **l_a);
+t_element *put_in_list(t_element *l_a, int counter);
+void pb_func(t_element **l_a, t_element **l_b);
+void pa_func(t_element **l_a, t_element **l_b);
+int my_getnbr(char *test);
 
 
 #endif

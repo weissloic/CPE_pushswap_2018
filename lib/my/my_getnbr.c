@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_getnbr.c
+** dce.c
 ** File description:
-** my_getnbr
+** dze
 */
 
 #include "my.h"
